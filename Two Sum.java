@@ -4,14 +4,13 @@ class Solution {
 
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         for(int i = 0; i< nums.length; i++){
-            int current = nums[i];
-            if(map.containsKey(target-current) && map.get(target-current) != i){
-                solution[0] = i;
-                solution[1] = map.get(target-current);
+            int complement = target-nums[i];
+            if(map.containsKey(complement)){
+                solution[0] = map.get(complement);
+                solution[1] = i;
                 break;
-            } else {
-                map.put(nums[i], i);
             }
+            map.put(nums[i], i);
         }
 
 
